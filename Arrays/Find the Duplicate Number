@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+         const int MAX_SIZE=1e5+1;
+         int check[MAX_SIZE]={0}; 
+         for(int i=0;i<nums.size();i++){
+             check[nums[i]]++;
+             if(check[nums[i]]==2)
+                 return nums[i];
+         }
+        return 0;
+    }
+};
