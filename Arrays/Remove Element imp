@@ -1,0 +1,40 @@
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        sort(nums.begin(),nums.end());
+        int idx=-1;
+        for(int i=0;i<nums.size();i++){
+             if(nums[i]==val){
+                 idx=i;
+                 break;
+             }
+        }
+        if(idx!=-1){
+        int st=idx,en=nums.size()-1,ans=0;
+        while(st<en){
+            if(nums[st]==val){
+                int temp=nums[en];
+                nums[en]=nums[st];
+                nums[st]=temp;
+            }
+            st++;
+            en--;
+            
+        }
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==val){
+                idx=i;
+                break;
+            }
+        }
+         for(int i=0;i<nums.size();i++){
+            cout<<nums[i]<<" ";
+        }
+     }
+        if(idx==-1)
+            return nums.size();
+        return idx;
+        
+        
+    }
+};
