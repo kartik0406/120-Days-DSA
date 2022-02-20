@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector<vector<int>> generate(int numRows) {
+        vector<vector<int>>ans;
+        ans.push_back({1});
+        if(numRows==1)
+             return ans;
+        for(int i=1;i<numRows;i++){
+            vector<int>level;
+            if(ans.size()==1){
+                level.push_back(1);
+                level.push_back(1);
+            }
+            else{for(int j=0;j<ans[i-1].size()-1;j++){
+                if(j==0)
+                    level.push_back(1);
+            
+                
+                int n=ans[i-1][j];
+                int m=ans[i-1][j+1];
+                m=m+n;
+                  level.push_back(m);
+                
+            
+            }
+            level.push_back(1);
+         }
+            ans.push_back(level);
+           
+        }
+        return ans;
+    }
+};
