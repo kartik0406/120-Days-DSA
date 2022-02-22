@@ -1,6 +1,39 @@
 class Solution {
 public:
     int clumsy(int n) {
+    
+         int res=0,num,pstive=1;
+        while(n>0){
+            if(n>=3){
+                num=n*(n-1)/(n-2);
+                n-=3;
+            }
+            else if(n==2){
+                num=n*(n-1);
+                n=0;
+            }
+            else if(n==1){
+                num=n;
+                n=0;
+            }
+            if(pstive){
+                res+=num;
+                pstive=0;
+            }
+            else{
+                res-=num;
+            }            
+            
+            if(n>=1)
+            {
+                res+=n;
+                n--;
+            }
+           
+        }
+        return res;
+        
+        /*
            int ans =1;
  
       if(n==1) return 1;
@@ -14,5 +47,6 @@ public:
         else if(n%4==3) return n-1;
        
         return ans;
+      */
     }
 };
