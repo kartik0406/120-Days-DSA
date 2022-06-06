@@ -1,0 +1,9 @@
+   long long sumUnderModulo(long long a,long long b)
+    {
+        int M=1e9+7;
+        long long ans=0;
+        ans=(a%M+b%M)%M;
+        return ans;
+    }
+
+    Question Link: https://practice.geeksforgeeks.org/problems/addition-under-modulo/1/?track=ppc-mathematics&batchId=221

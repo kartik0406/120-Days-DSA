@@ -1,0 +1,11 @@
+int digitsInFactorial(int N)
+    {
+        double res=0;
+        for(int i=2;i<=N;i++){
+            res+=log10(i);
+        }
+        return floor(res+1);
+        
+        
+    }
+    Question Link: https://practice.geeksforgeeks.org/problems/digits-in-factorial/1/?track=ppc-mathematics&batchId=221

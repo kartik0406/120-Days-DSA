@@ -1,0 +1,33 @@
+ bool isPrime(int i){
+        
+           bool flag=true;
+         for(int j=2;j<=sqrt(i);j++){
+            
+             if(i%j==0)
+              {
+                  flag=false;
+                  break;
+              }
+         }
+        
+        
+        return flag;
+          
+    }
+    int exactly3Divisors(int N)
+    {
+      
+        int count=0;
+      for(int i=2;i<=sqrt(N);i++){
+          
+            if(isPrime(i)==true){
+                 count++;
+            }
+          }
+    //   if(N<=3)
+    //   count=0;
+      return count;
+  
+    }
+
+Question Link: https://practice.geeksforgeeks.org/problems/exactly-3-divisors/1/?track=ppc-mathematics&batchId=221

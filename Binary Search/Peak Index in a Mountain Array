@@ -1,0 +1,17 @@
+    int peakIndexInMountainArray(vector<int>& arr) {
+        int mx=INT_MAX;
+        int st=0,en=arr.size()-1,mid;
+        while(st<=en){
+            mid=st+(en-st)/2;
+            if(arr[mid]>arr[mid-1] && arr[mid]>arr[mid+1]){
+                break;
+            }
+            else if(arr[mid]<arr[mid+1])
+                st=mid;
+            else if(arr[mid]>arr[mid+1])
+                en=mid;
+        }
+        return mid;
+    }
+
+Question Link: https://leetcode.com/problems/peak-index-in-a-mountain-array/
