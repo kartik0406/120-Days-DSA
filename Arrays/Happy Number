@@ -1,0 +1,25 @@
+    int sumofdigits(int n){
+        int sum=0;
+        while(n!=0){
+            int num=n%10;
+            sum+=(num*num);
+            n=n/10;
+        }
+        return sum;
+    }
+    bool isHappy(int n) {
+        map<int,int> mp;
+        int num=n;
+        mp[num]=1;
+        while(num!=1){
+            num=sumofdigits(num);
+            // cout<<num<<" ";
+            // cout<<mp[num]<<" ";
+            if(mp[num]==1)
+                return false;
+             mp[num]=1;
+        }
+        return true;
+    }
+    
+    Question Link: https://leetcode.com/problems/happy-number/

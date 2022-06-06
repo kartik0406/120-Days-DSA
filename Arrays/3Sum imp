@@ -1,0 +1,33 @@
+    vector<vector<int>> threeSum(vector<int>& nums) {
+            sort(nums.begin(),nums.end());
+            vector<vector<int>>ans;
+            for(int i=0;i<nums.size();i++){
+                 if(i>0 && nums[i-1]==nums[i]) continue;
+                 int ele=nums[i];
+                 int j=i+1,k=nums.size()-1;
+                 while(j<k){
+                     int a=ele+nums[j]+nums[k];
+                     if(a==0)
+                     {
+                            vector<int>temp;
+                            temp.push_back(ele);
+                            temp.push_back(nums[j]);
+                            temp.push_back(nums[k]);
+                            ans.push_back(temp);
+                          while(j<nums.size()-1 && nums[j]==nums[j+1])
+                             j++;
+                     
+                            while(k>0 && nums[k-1]==nums[k]) k--;
+                         j++;
+                         k--;
+                     }
+                     else if(a<0)
+                         j++;
+                     else
+                         k--;
+                    
+                 }
+            }
+        return ans;
+    }
+    Question Link: https://leetcode.com/problems/3sum/

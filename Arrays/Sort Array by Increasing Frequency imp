@@ -1,0 +1,26 @@
+ static bool comparator(pair<int,int>a,pair<int,int>b){
+        if(a.second==b.second)
+             return a.first>b.first;
+        return a.second<b.second;
+    }
+    vector<int> frequencySort(vector<int>& nums) {
+        vector<int>ans;
+        map<int,int>mp;
+        for(int i=0;i<nums.size();i++){
+            mp[nums[i]]++;
+        }
+        vector<pair<int,int>>v;
+        for(auto it:mp){
+            v.push_back(it);
+        }
+        sort(v.begin(),v.end(),comparator);
+        for(int i=0;i<v.size();i++){
+             while(v[i].second--)
+             {
+                 ans.push_back(v[i].first);
+             }
+        }
+        return ans;
+    }
+
+Question Link: https://leetcode.com/problems/sort-array-by-increasing-frequency/

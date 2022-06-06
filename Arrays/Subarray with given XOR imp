@@ -1,0 +1,16 @@
+int Solution::solve(vector<int> &A, int B) {
+     int xorSum=0,res=0;
+     map<int,int>mp;
+     for(int i=0;i<A.size();i++){
+           xorSum=xorSum^A[i];
+           if(xorSum==B)
+             res++;
+           int y=xorSum^B;
+           if(mp[y]>0)
+             res+=mp[y];
+           mp[xorSum]++;
+     }
+     return res;
+}
+
+Question Link: https://www.interviewbit.com/problems/subarray-with-given-xor/

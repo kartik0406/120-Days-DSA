@@ -1,0 +1,37 @@
+    vector<int> majorityElement(vector<int>& nums) {
+      vector<int>ans;
+      int ct1=0,ct2=0;
+      int num1=-1,num2=-1;
+      for(int i=0;i<nums.size();i++){
+          if(nums[i]==num1)
+              ct1++;
+          else if(nums[i]==num2)
+              ct2++;
+          else if(ct1==0){
+              num1=nums[i];
+              ct1++;
+          }
+          else if(ct2==0){
+              num2=nums[i];
+              ct2++;
+          }
+          else{
+              ct1--;
+              ct2--;
+          }
+      }
+        ct1=0;ct2=0;
+      for(int i=0;i<nums.size();i++){
+          if(nums[i]==num1)
+              ct1++;
+          if(nums[i]==num2)
+              ct2++;
+      }
+        if(ct1>floor(nums.size()/3))
+            ans.push_back(num1);
+        if(num1!=num2)
+          if(ct2>floor(nums.size()/3))
+            ans.push_back(num2);      
+      return ans;
+    }
+    Question Link: https://leetcode.com/problems/majority-element-ii/

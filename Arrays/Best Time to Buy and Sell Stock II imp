@@ -1,0 +1,48 @@
+    int maxProfit(vector<int>& prices) {
+        
+        int ans=0;
+        for(int i=1;i<prices.size();i++){
+            
+            if(prices[i]>prices[i-1])
+                ans+=prices[i]-prices[i-1];
+        }
+        
+       return ans; 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//        int mx=0,mn1=INT_MAX,mn2=INT_MAX,curr1=0,curr2=0;
+//         for(int i=0;i<prices.size();i++){
+//             mn1=min(mn1,prices[i]);
+//             if(i+1<prices.size())
+//             mn2=min(mn2,prices[i+1]);
+//             if(prices[i]>mn1){
+//                 if(curr1<prices[i]-mn1){
+//                     curr1=prices[i]-mn1;
+//                     curr2=0;
+//                      if(i+1<prices.size())
+//                          mn2=prices[i+1];
+//                 }
+         
+           
+//             }
+//             if(i+1<prices.size() && prices[i+1]>=mn2){
+//                 curr2=max(curr2,prices[i+1]-mn2);
+//             }
+//            // cout<<mn1<<" "<<mn2<<" "<<curr1<<" "<<curr2<<endl;
+//             mx=max(mx,curr1+curr2);
+//          }
+       
+        
+//         return mx;
+    }

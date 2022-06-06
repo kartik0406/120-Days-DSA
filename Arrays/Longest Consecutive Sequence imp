@@ -1,0 +1,26 @@
+ int longestConsecutive(vector<int>& nums) {
+        unordered_set<int>st;
+        int res=0;
+        for(int i=0;i<nums.size();i++){
+            st.insert(nums[i]);
+        }
+        for(int i=0;i<nums.size();i++){
+            if(st.count(nums[i]-1)==1)
+                 continue;
+            else
+            {
+                int j=nums[i];
+                int ct=0;
+                while(st.count(j)==1){
+                    j++;
+                    ct++;
+                }
+                res=max(res,ct);
+            }
+        }
+   
+  
+        return res;
+    }
+
+    Question Link: https://leetcode.com/problems/longest-consecutive-sequence/

@@ -1,0 +1,23 @@
+    long long trappingWater(int arr[], int n){
+           int left[n],right[n];
+           int mx=INT_MIN;
+           for(int i=0;i<n;i++){
+                  mx=max(mx,arr[i]);
+                  left[i]=mx;
+                  //cout<<left[i]<<" ";
+           }
+           //cout<<endl;
+           mx=INT_MIN;
+           for(int i=n-1;i>=0;i--){
+               mx=max(mx,arr[i]);
+               right[i]=mx;
+               //cout<<right[i]<<" ";
+           }
+           long long amtWater=0;
+           for(int i=0;i<n;i++){
+               amtWater+=min(left[i],right[i])-arr[i];
+           }
+           return amtWater;
+    }
+
+    Question Link: https://practice.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1
