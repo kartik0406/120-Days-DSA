@@ -1,0 +1,21 @@
+long long maxProduct(vector<int> arr, int n) {
+       long long currSum=1,mx=INT_MIN;
+	   for(int i=0;i<n;i++){
+	       currSum*=arr[i];
+	       mx=max(mx,currSum);
+	       if(currSum==0)
+	       currSum=1;
+	   
+	   }
+	   currSum=1;
+	   for(int i=n-1;i>=0;i--){
+	       currSum*=arr[i];
+	       mx=max(mx,currSum);
+	       if(currSum==0)
+	       currSum=1;
+	   }
+	   return mx;
+	}
+
+
+Question Link: https://practice.geeksforgeeks.org/problems/maximum-product-subarray3604/1
