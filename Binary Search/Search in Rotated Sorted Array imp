@@ -1,0 +1,38 @@
+int search(vector<int>& nums, int target) {
+        int pivot=-1;
+        int st=0,en=nums.size()-1;
+        if(nums[st]>nums[en]){
+        while(st<en){
+            int mid=st+(en-st)/2;
+            if(nums[mid]>=nums[0])
+                st=mid+1;
+            else
+                en=mid;
+        }
+        pivot=st;
+        if(nums[pivot]<=target && target<=nums[nums.size()-1]){
+            st=pivot;
+            en=nums.size()-1;
+        }
+        else{
+            st=0;
+            en=pivot-1;
+         }
+      }
+        int mid=0;
+        while(st<=en){
+            mid=st+(en-st)/2;
+            if(nums[mid]==target)
+                break;
+            else if(nums[mid]<target)
+                st=mid+1;
+            else
+                en=mid-1;
+        }
+        if(nums[mid]!=target)
+            return -1;
+        return mid;
+    }
+
+
+Question Link: https://leetcode.com/problems/search-in-rotated-sorted-array/

@@ -1,0 +1,22 @@
+     long long int mySqrt(int x) {
+        
+        long long int st=0,en=x,mid,ans=-1;
+        if(x==0 || x==1)
+            return x;
+        while(st<=en){
+            mid=st+(en-st)/2;
+            if (mid*mid==x)
+                 return mid;
+            else if(mid*mid>x)
+                en=mid-1;
+            else{
+                ans=mid;
+                st=mid+1;
+            }
+        }
+       return ans;
+        
+        
+    }
+
+Question Link: https://leetcode.com/problems/sqrtx/
