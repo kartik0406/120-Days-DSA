@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow-x: hidden;">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/public/assets/project.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- This is  start of the navbar -->
+    <div class="topnav">
+      <a id="title" href="/">VIT Pro Bud</a>
+      <a class="alig" href="/projects">Explore</a>
+      <a class="alig" href="/about">About</a>
+      <a class="alig" href="/contact">Contact</a>
+      <a class="alig" href="/gallery">Gallery</a>
+      <%  if(!user){%>
+      <a class="alig" href="/register">Register</a>
+      <a class="alig" href="/login">Login</a>
+      <%  }else{ %>
+          <a class="alig" href="/logout">Logout</a>
+   
+      <a href="/userprofile"><img src="/<%= user.img.path %>" alt=""></a>
+      <%  } %>
+  </div>
+    <!-- navbar end -->
+
+  <!-- Project dashboard start -->
+      <div class="box">
+       <p>Apply for Different projects and enhance your development skills</p>
+       <a class="btn" href="/projects/new">Create a Project</a>
+      </div>
+      
+
+
+      <div class="row">
+
+          <% projects.forEach(function(project){%>
+        <a class="link" href="/projects/<%=project._id%>"><div class="column">
+         <div class="card">
+            <h1><%=project.title.substring(0,40)%></h1>
+            <h1><%=project.descrip.substring(0,15)%>...</h1>
+            <p> <a href="/userprofile/<%=project.owner.id%>">Created by <%=project.owner.username%></a></p>
+            <p>Max:<%=project.max%> <span class="want">Want:<%=project.need%></span></p>
+          </div>
+        </div></a>
+        <% });%>
+ 
+     
+
+      
+       
+      
+
+
+      </div>
+      <!-- Project dashbord ended -->
+
+
+
+      <!-- footer start -->
+      <div class="footer">
+        <p>Copyright &#169; 2021 Kartik Khanna</p>
+    </div>
+    <!-- footer ended -->
+
+    
+</body>
+</html>
